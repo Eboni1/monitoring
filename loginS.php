@@ -26,7 +26,7 @@ session_start();
 
                     $user_data = mysqli_fetch_assoc($result);
                     
-                    switch($user_data['user_type'])
+                    switch($type)
                     {
                         case 'A':
                             if($user_data['password'] === $password){
@@ -36,23 +36,21 @@ session_start();
                                 die;
                             }
                             break;
-                        // case 'S':
-                        //     if($user_data['password'] === $password){
+                        case 'S':
+                            if($user_data['password'] === $password){
                         
-                        //         $_SESSION['num_id'] = $user_data['num_id'];
-                        //         header("Location: students/index.php");
-                        //         die;
-                        //     }
-                        //     break;
-                        default:
-                            echo "Invalid user type";
+                                $_SESSION['num_id'] = $user_data['num_id'];
+                                header("Location: students/index.php");
+                                die;
+                            }
                             break;
-
+                        default:
+                            echo '<script>alert("Please specify your role.")</script>';
+                            break;
                     }
-                
                 }
-                echo '<script>alert("Your account is not a staff.")</script>';
             }
+            echo '<script>alert("There is no account linked with your email.")</script>';
 		}else
 		{
 			echo '<script>alert("Please enter valid information.")</script>';
@@ -80,12 +78,17 @@ session_start();
         }
         
         .container{
-            margin-top: 100px;
+            margin-top: 85px;
         }
         .img{
             width: 90%;
             height: auto;
             transform: scale(1.3);
+        }
+        .too li{
+            margin-top: 15px;
+            margin-left: 20px;
+            font-size: medium;
         }
 
         .row{
@@ -102,16 +105,16 @@ session_start();
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <div class="im">
-                        <img src="images/Bicol_UniversityLogo.png" width="58" height="60">
+                            <img src="images/Bicol_UniversityLogo.png" width="58" height="60">
                         </div>
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Library</li>
+                        <li class="breadcrumb-item"><a href="#" style="margin-left: 20px;">Library</a></li>
                     </ol>
                 </nav>
             </div>
             <div class="row px-lg-5 py-3">
                 <div class="col-6 pt-3">
-                    <h3>Welcome,</h3><br>
+                    <h1>Welcome,</h1><br>
                     <img src="images/Buenosbetter.png" class="img">
                 </div>
                 <div class="col-6 form-floating pt-3">
@@ -119,12 +122,12 @@ session_start();
                     <label for="exampleInputEmail1" class="form-label">I am a:</label>
                     <select class="form-select" aria-label="Default select example" name="type">
                         <option selected>Select</option>
-                        <option value="1">Student</option>
-                        <option value="2">Faculty</option>
+                        <option value="S">Student</option>
+                        <option value="A">Faculty</option>
                     </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <label for="exampleInputEmail1" class="form-label">BU Email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" name="email">
                     </div>
                     <div class="mb-3">
@@ -136,14 +139,6 @@ session_start();
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div> 
                 </div>
-                <!-- <div class="col-4 form-floating pt-3"> -->
-                    <!-- <input type="password" class="form-control" id="floatingPassword" name="password">
-                    <label for="floatingPassword">Password</label>
-                    <a href="index.php">Return to Home</a><br> -->
-                    <!-- <a href="students/index.php">To student ui</a><br>
-                    <a href="staff/index.php">To staff ui</a><br> -->
-                    <!-- <button type="submit" class="btn btn-primary">Login</button> -->
-                <!-- </div> -->
             </div>
         </div>
     </form>
