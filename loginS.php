@@ -96,6 +96,11 @@ session_start();
             background-color: rgba(227, 227, 227, 0.5);
             border-radius: 55px;
         }
+        a{
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+        }
     </style>
 </head>
 <body>
