@@ -77,57 +77,21 @@ session_start();
         }
 
         }
-        /* button {
-        font-size: 18px;
-        color: #e1e1e1;
-        font-family: inherit;
-        font-weight: 800;
-        cursor: pointer;
-        position: relative;
-        border: none;
-        background: none;
-        text-transform: uppercase;
-        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-        transition-duration: 400ms;
-        transition-property: color;
-        }
-
-        button:focus,
-        button:hover {
-        color: #fff;
-        }
-
-        button:focus:after,
-        button:hover:after {
-        width: 100%;
-        left: 0%;
-        }
-
-        button:after {
-        content: "";
-        pointer-events: none;
-        bottom: -2px;
-        left: 50%;
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        background-color: #fff;
-        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-        transition-duration: 400ms;
-        transition-property: width, left;
-        } */
-        button{
-        height:25px;
-        width:105px;
+        a{
+        padding: 5px 45px;
         border-radius: 30px;
         background-color:white;
-        border: 3px solid black;
-        color:black;
+        border: 3px solid rgba(44, 44, 44, 1);
+        color:rgba(44, 44, 44, 1);
+        text-decoration: none;
         font-weight: bold;
         position: relative;
         font-family: inherit;
         align-content: center;
         justify-content: center;
+        }
+        li{
+        margin-top: 20px;
         }
     </style>
 </head>
@@ -136,7 +100,7 @@ session_start();
         <!-- navbar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li><button>Home</button></li>
+                <li><a href="logout.php">Logout</a></li>
                 <li><a href="#">Another link</a></li>
                 <li><a href="#">Next link</a></li>
                 <li><a href="#">Last link</a></li>
@@ -147,7 +111,7 @@ session_start();
             <div class="page-content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-12">
                             <h1>TESTTERTTT</h1>
                         </div>
                     </div>
