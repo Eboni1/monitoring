@@ -37,6 +37,9 @@ session_start();
         overflow-y: auto;
         z-index: 1000;
         transition: all 0.4s ease 0s;
+        display: flex;
+        align-items: center;
+        text-align: center;
         }
         #page-content-wrapper {
         width: 100%;
@@ -74,18 +77,57 @@ session_start();
         }
 
         }
-        .button{
-            border: 3px solid rgba(19, 19, 19, 1);
-            border-radius: 16px;
-            border-spacing: 80px auto;
-            margin-top: 8px;
-            margin-bottom: 8px;
-            
+        /* button {
+        font-size: 18px;
+        color: #e1e1e1;
+        font-family: inherit;
+        font-weight: 800;
+        cursor: pointer;
+        position: relative;
+        border: none;
+        background: none;
+        text-transform: uppercase;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 400ms;
+        transition-property: color;
         }
-        a{
-            color: rgba(19, 19, 19, 1);
-            text-decoration: none;
-            font-weight: bold;
+
+        button:focus,
+        button:hover {
+        color: #fff;
+        }
+
+        button:focus:after,
+        button:hover:after {
+        width: 100%;
+        left: 0%;
+        }
+
+        button:after {
+        content: "";
+        pointer-events: none;
+        bottom: -2px;
+        left: 50%;
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: #fff;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 400ms;
+        transition-property: width, left;
+        } */
+        button{
+        height:25px;
+        width:105px;
+        border-radius: 30px;
+        background-color:white;
+        border: 3px solid black;
+        color:black;
+        font-weight: bold;
+        position: relative;
+        font-family: inherit;
+        align-content: center;
+        justify-content: center;
         }
     </style>
 </head>
@@ -94,10 +136,10 @@ session_start();
         <!-- navbar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="button"><a href="../index.php">Home</a></li>
-                <li class="button"><a href="#">Another link</a></li>
-                <li class="button"><a href="#">Next link</a></li>
-                <li class="button"><a href="#">Last link</a></li>
+                <li><button>Home</button></li>
+                <li><a href="#">Another link</a></li>
+                <li><a href="#">Next link</a></li>
+                <li><a href="#">Last link</a></li>
             </ul>
         </div>
         <!-- content -->

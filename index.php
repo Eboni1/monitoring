@@ -96,7 +96,7 @@ session_start();
             background-color: rgba(227, 227, 227, 0.5);
             border-radius: 55px;
         }
-        a{
+        .topli{
             font-weight: bold;
             text-decoration: none;
             color: black;
@@ -112,8 +112,8 @@ session_start();
                         <div class="im">
                             <img src="images/Bicol_UniversityLogo.png" width="58" height="60">
                         </div>
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#" style="margin-left: 20px;">Library</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="topli">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="topli" style="margin-left: 20px;">Library</a></li>
                     </ol>
                 </nav>
             </div>
@@ -138,7 +138,7 @@ session_start();
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Password</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="password">
-                        <a href="signup.php">Don't have an account?</a>
+                        <a href="signup.php" style="font-weight:bold;">Don't have an account?</a>
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Login</button>
