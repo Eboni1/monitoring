@@ -109,10 +109,19 @@ session_start();
         <!-- content -->
         <div id="page-content-wrapper">
             <div class="page-content">
-                <div class="container">
+                <div class="container px-3 pt-3">
                     <div class="row">
-                        <div class="col-12">
-                            <h1>TESTTERTTT</h1>
+                        <div class="col">
+                            <img src="../images/Bicol_UniversityLogo.png" style="height: 100px;">
+                            <img src="../images/Schedule.png" style="height: 100px;">
+                        </div>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-4">
+                            <h1>Class in Progress:</h1>
+                        </div>
+                        <div class="col-8">
+                            TEST
                         </div>
                     </div>
                 </div>
