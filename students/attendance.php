@@ -113,8 +113,8 @@ session_start();
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li><img src="../images/LOHOg.png" style="width:200px;"></li>
-                <li><a href="#" class="active">SCHEDULE</a></li>
-                <li><a href="attendance.php">ATTENDACE</a></li>
+                <li><a href="index.php">SCHEDULE</a></li>
+                <li><a href="#" class="active">ATTENDACE</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="logout.php">LOGOUT</a></li>
             </ul>
@@ -127,10 +127,10 @@ session_start();
                         <div class="row">
                             <div class="col">
                                 <img src="../images/Bicol_UniversityLogo.png" style="height: 100px;">
-                                <img src="../images/Schedule.png" style="height: 100px;">
+                                <img src="../images/Attendance.png" style="height: 100px;">
                             </div>
                         </div>
-                        <!-- <div class="row">
+                        <div class="row">
                             <div class="col-4 text-center">
                                 <h1>Absent:<br>0</h1>
                             </div>
@@ -140,10 +140,10 @@ session_start();
                             <div class="col-4 text-center">
                                 <h1>Classes Attended:<br>0</h1>
                             </div>
-                        </div> -->
+                        </div>
                     </section>
                     <!-- Class schedule -->
-                    <section class="px-3 pt-3">
+                    <!-- <section class="px-3 pt-3">
                         <div class="row">
                             <table>
                                 <tr>
@@ -208,7 +208,7 @@ session_start();
                                 </tr>
                             </table>
                         </div>
-                    </section>
+                    </section> -->
                 </div>
                 
             </div>
