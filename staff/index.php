@@ -7,15 +7,15 @@ session_start();
     $user_data = check_login($con);
     $email = $user_data['email'];
 
-    $query = "SELECT * FROM `subject` 
-              WHERE `inst_email` = $email";
+    // $query = "SELECT * FROM `subject` 
+    //           WHERE `inst_email` = $email";
 
-    $result = mysqli_query($con, $query);
+    // $result = mysqli_query($con, $query);
 
-    if($result && mysqli_num_rows($result) > 0){
-        
-        $class = mysqli_fetch_assoc($result);
-    }
+    // if($result && mysqli_num_rows($result) > 0){
+
+    //     $class = mysqli_fetch_assoc($result);
+    // }
     
 
 ?>
@@ -132,9 +132,12 @@ session_start();
                 <div class="container">
                     <section class="px-3 pt-3">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-8">
                                 <img src="../images/Bicol_UniversityLogo.png" style="height: 100px;">
                                 <img src="../images/Schedule.png" style="height: 100px;">
+                            </div>
+                            <div class="col-4">
+                                <?php $t=time(); echo($t . "<br>"); echo(date("d-m-Y",$t)) ?>
                             </div>
                         </div>  
                         <div class="row">
