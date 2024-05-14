@@ -19,16 +19,10 @@
     <form action="" method="post">
         <div class="container">
             <div class="row pt-lg-5">
-                <div class="col-2">
-                    <h1>test</h1>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">BU Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" name="email">
                 </div>
-                <div class="col-8 form-floating">
-                    <input type="fname" class="form-control" id="floatingInput">
-                    <label for="floatingInput">Full Name</label><br>
-                    <input type="fname" class="form-control" id="floatingInput">
-                    <label for="floatingInput">Full Name</label>
-                </div>
-                <div class="col-2"></div>
             </div>
         </div>
     </form>

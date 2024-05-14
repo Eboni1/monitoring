@@ -20,6 +20,7 @@ session_start();
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         body{
             background: rgba(152, 217, 245, 1);
@@ -99,6 +100,12 @@ session_start();
         .active{
             color: rgba(227, 125, 0, 1);
         }
+        h3{
+        font-weight: bold;
+        }
+        h6{
+        margin-bottom: 75px;
+        }
     </style>
 </head>
 <body>
@@ -107,6 +114,9 @@ session_start();
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li><img src="../images/LOHOg.png" style="width: 200px;"></li>
+                <li><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></li>
+                <li><h3><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></li>
+                <li><h6><?php echo $user_data['email']; ?></h6></li>
                 <li><a href="index.php">SCHEDULES</a></li>
                 <li><a href="#" class="active">ATTENDANCE</a></li>
                 <li><a href="#">ABOUT</a></li>
