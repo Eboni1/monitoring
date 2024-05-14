@@ -5,19 +5,6 @@ session_start();
     include("../functions.php");
 
     $user_data = check_login($con);
-    $email = $user_data['email'];
-
-    // $query = "SELECT * FROM `subject` 
-    //           WHERE `inst_email` = $email";
-
-    // $result = mysqli_query($con, $query);
-
-    // if($result && mysqli_num_rows($result) > 0){
-
-    //     $class = mysqli_fetch_assoc($result);
-    // }
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +20,6 @@ session_start();
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         body{
             background: rgba(152, 217, 245, 1);
@@ -121,8 +107,8 @@ session_start();
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li><img src="../images/LOHOg.png" style="width: 200px;"></li>
-                <li><a href="#" class="active">SCHEDULES</a></li>
-                <li><a href="attendance.php">ATTENDANCE</a></li>
+                <li><a href="index.php">SCHEDULES</a></li>
+                <li><a href="#" class="active">ATTENDANCE</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="logout.php">LOGOUT</a></li>
             </ul>
@@ -133,20 +119,11 @@ session_start();
                 <div class="container">
                     <section class="px-3 pt-3">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-12">
                                 <img src="../images/Bicol_UniversityLogo.png" style="height: 100px;">
-                                <img src="../images/Schedule.png" style="height: 100px;">
-                            </div>
-                            <div class="col-4">
-                                <?php $t=time(); echo($t . "<br>"); echo(date("d-m-Y",$t)) ?>
+                                <img src="../images/Attendance.png" style="height: 100px;">
                             </div>
                         </div>  
-                        <div class="row">
-                            <div class="col">
-                                <p>Subject:</p>
-                                <h1><?php  ?></h1>
-                            </div>
-                        </div>
                     </section>
                 </div>
             </div>
