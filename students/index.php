@@ -139,17 +139,6 @@ session_start();
                                 <img src="../images/Schedule.png" style="height: 100px;">
                             </div>
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-4 text-center">
-                                <h1>Absent:<br>0</h1>
-                            </div>
-                            <div class="col-4 text-center">
-                                <h1>Tardy:<br>0</h1>
-                            </div>
-                            <div class="col-4 text-center">
-                                <h1>Classes Attended:<br>0</h1>
-                            </div>
-                        </div> -->
                     </section>
                     <!-- Class schedule -->
                     <section class="px-3 pt-3">
@@ -157,63 +146,53 @@ session_start();
                             <table>
                                 <tr>
                                     <th>Day/Period</th>
-                                    <th>I<br>9:30-10:20</th>
-                                    <th>II<br>10:20-11:10</th>
-                                    <th>III<br>11:10-12:00</th>
-                                    <th>12:00-12:40</th>
-                                    <th>IV<br>12:40-1:30</th>
-                                    <th>V<br>1:30-2:20</th>
-                                    <th>VI<br>2:20-3:10</th>
-                                    <th>VII<br>3:10-4:00</th>
+                                    <th>I<br>9:00-10:00</th>
+                                    <th>II<br>10:00-11:30</th>
+                                    <th>III<br>11:30-12:00</th>
+                                    <th>12:00-1:00</th>
+                                    <th>IV<br>1:00-2:30</th>
+                                    <th>V<br>2:30-4:00</th>
+                                    <th>VI<br>4:00-5:30</th>
+                                    <th>VII<br>5:30-7:30</th>
                                 </tr>
                                 <tr>
                                     <td class="highlight"><b>Monday</b></td>
-                                    <td>Eng</td>
-                                    <td>Mat</td>
-                                    <td>Che</td>
+                                    <td>SADD</td>
+                                    <td colspan="2" class="special">VACANT</td>
                                     <td rowspan="6" class="special"><b>LUNCH</b></td>
-                                    <td colspan="3" class="special">LAB</td>
-                                    <td>Phy</td>
+                                    <td colspan="4" class="special">VACANT</td>
                                 </tr>
                                 <tr>
                                     <td class="highlight"><b>Tuesday</b></td>
-                                    <td colspan="3" class="special">LAB</td>
-                                    <td>Eng</td>
-                                    <td>Che</td>
-                                    <td>Mat</td>
-                                    <td class="special">SPORTS</td>
+                                    <td colspan="3" class="special">VACANT</td>
+                                    <td colspan="4"class="special">VACANT</td>
                                 </tr>
                                 <tr>
                                     <td class="highlight"><b>Wednesday</b></td>
-                                    <td>Mat</td>
-                                    <td>Phy</td>
-                                    <td>Eng</td>
-                                    <td>Che</td>
-                                    <td colspan="3">LIBRARY</td>
+                                    <td colspan="3">SADD</td>
+                                    <td colspan="2">Financial Mng.</td>
+                                    <td class="special">VACANT</td>
+                                    <td>Pathfit</td>
                                 </tr>
                                 <tr>
                                     <td class="highlight"><b>Thursday</b></td>
-                                    <td>Phy</td>
-                                    <td>Eng</td>
-                                    <td>Che</td>
-                                    <td colspan="3" class="special">LAB</td>
-                                    <td>Mat</td>
+                                    <td>SADD</td>
+                                    <td>ODIT</td>
+                                    <td class="special">VACANT</td>
+                                    <td colspan="2">ETHICS</td>
+                                    <td colspan="2" class="special">VACANT</td>
                                 </tr>
                                 <tr>
                                     <td class="highlight"><b>Friday</b></td>
-                                    <td colspan="3" class="special">LAB</td>
-                                    <td>Mat</td>
-                                    <td>Che</td>
-                                    <td>Eng</td>
-                                    <td>Phy</td>
+                                    <td colspan="3">CONTEMP</td>
+                                    <td>ODIT</td>
+                                    <td colspan="3" class="special">VACANT</td>
                                 </tr>
                                 <tr>
                                     <td class="highlight"><b>Saturday</b></td>
-                                    <td>Eng</td>
-                                    <td>Che</td>
-                                    <td>Mat</td>
-                                    <td colspan="3">SEMINAR</td>
-                                    <td class="special">SPORTS</td>
+                                    <td colspan="3">ART APPRECIATION</td>
+                                    <td colspan="3">INFORMATION MNG.</td>
+                                    <td class="special">VACANT</td>
                                 </tr>
                             </table>
                         </div>

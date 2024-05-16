@@ -138,7 +138,7 @@ session_start(); //hello
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Password</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="password">
-                        <a href="signup.php" style="font-weight:bold;">Don't have an account?</a>
+                        <a href="signup.php" style="font-weight:bold; text-decoration:none;">Don't have an account?</a>
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-primary">Login</button>

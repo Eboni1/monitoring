@@ -128,7 +128,7 @@ session_start();
                 <li><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></li>
                 <li><h3 class="whe"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></li>
                 <li><h6><?php echo $user_data['email']; ?></h6></li>
-                <li><a href="#" class="active">SCHEDULES</a></li>
+                <li><a href="index.php">SCHEDULES</a></li>
                 <li><a href="attendance.php">ATTENDANCE</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="logout.php">LOGOUT</a></li>
