@@ -113,7 +113,6 @@ session_start(); //hello
                             <img src="images/Bicol_UniversityLogo.png" width="58" height="60">
                         </div>
                         <li class="breadcrumb-item"><a href="#" class="topli">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#" class="topli" style="margin-left: 20px;">Library</a></li>
                     </ol>
                 </nav>
             </div>

@@ -104,7 +104,7 @@ session_start();
         a.active{
             color: rgba(227, 125, 0, 1);
         }
-        h3{
+        h3.yea{
         font-weight: bold;
         }
         h6{
@@ -123,9 +123,9 @@ session_start();
             <ul class="sidebar-nav">
                 <li><img src="../images/LOHOg.png" style="width:200px;"></li>
                 <li><a href="profile.php" class="prof"><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></a></li>
-                <li><a href="profile.php" class="prof"><h3><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></a></li>
+                <li><a href="profile.php" class="prof active"><h3 class="yea"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></a></li>
                 <li><h6><?php echo $user_data['email']; ?></h6></li>
-                <li><a href="#" class="active eh">SCHEDULE</a></li>
+                <li><a href="index.php" class="eh">SCHEDULE</a></li>
                 <li><a href="attendance.php" class="eh">ATTENDACE</a></li>
                 <li><a href="#" class="eh">ABOUT</a></li>
                 <li><a href="logout.php" class="eh">LOGOUT</a></li>
@@ -139,65 +139,21 @@ session_start();
                         <div class="row">
                             <div class="col">
                                 <img src="../images/Bicol_UniversityLogo.png" style="height: 100px;">
-                                <img src="../images/Schedule.png" style="height: 100px;">
+                                <!-- <img src="../images/Schedule.png" style="height: 100px;"> -->
                             </div>
                         </div>
                     </section>
                     <!-- Class schedule -->
                     <section class="px-3 pt-3">
                         <div class="row">
-                            <table>
-                                <tr>
-                                    <th>Day/Period</th>
-                                    <th>I<br>9:00-10:00</th>
-                                    <th>II<br>10:00-11:30</th>
-                                    <th>III<br>11:30-12:00</th>
-                                    <th>12:00-1:00</th>
-                                    <th>IV<br>1:00-2:30</th>
-                                    <th>V<br>2:30-4:00</th>
-                                    <th>VI<br>4:00-5:30</th>
-                                    <th>VII<br>5:30-7:30</th>
-                                </tr>
-                                <tr>
-                                    <td class="highlight"><b>Monday</b></td>
-                                    <td>SADD</td>
-                                    <td colspan="2" class="special">VACANT</td>
-                                    <td rowspan="6" class="special"><b>LUNCH</b></td>
-                                    <td colspan="4" class="special">VACANT</td>
-                                </tr>
-                                <tr>
-                                    <td class="highlight"><b>Tuesday</b></td>
-                                    <td colspan="3" class="special">VACANT</td>
-                                    <td colspan="4"class="special">VACANT</td>
-                                </tr>
-                                <tr>
-                                    <td class="highlight"><b>Wednesday</b></td>
-                                    <td colspan="3">SADD</td>
-                                    <td colspan="2">Financial Mng.</td>
-                                    <td class="special">VACANT</td>
-                                    <td>Pathfit</td>
-                                </tr>
-                                <tr>
-                                    <td class="highlight"><b>Thursday</b></td>
-                                    <td>SADD</td>
-                                    <td>ODIT</td>
-                                    <td class="special">VACANT</td>
-                                    <td colspan="2">ETHICS</td>
-                                    <td colspan="2" class="special">VACANT</td>
-                                </tr>
-                                <tr>
-                                    <td class="highlight"><b>Friday</b></td>
-                                    <td colspan="3">CONTEMP</td>
-                                    <td>ODIT</td>
-                                    <td colspan="3" class="special">VACANT</td>
-                                </tr>
-                                <tr>
-                                    <td class="highlight"><b>Saturday</b></td>
-                                    <td colspan="3">ART APPRECIATION</td>
-                                    <td colspan="3">INFORMATION MNG.</td>
-                                    <td class="special">VACANT</td>
-                                </tr>
-                            </table>
+                            <div class="col-2">
+                                <img src="../images/profpic.png" style="width:150px;">
+                            </div>
+                            <div class="col-10">
+                                <h1 style="font-weight: bold;"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h1><br>
+                                <h3><?php echo $user_data['stud_num'] ?></h3><br>
+                                <h3><?php echo $user_data['email'] ?></h3>
+                            </div>
                         </div>
                     </section>
                 </div>

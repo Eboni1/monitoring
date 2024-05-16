@@ -134,6 +134,17 @@ session_start();
                                 <img src="../images/Attendance.png" style="height: 100px;">
                             </div>
                         </div>  
+                        <div class="row">
+                            <div class="col">
+                                <?php
+                                for($x = 1; $x <= 1; $x++){
+                                    $query = "SELECT * FROM `users` 
+                                              WHERE `course` = 'BSIS';";
+                                    $result = mysqli_query($con, $query);
+                                }
+                                ?>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>

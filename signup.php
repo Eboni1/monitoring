@@ -1,5 +1,39 @@
 <?php
+session_start();
 
+    include("connection.php");
+	include("functions.php");
+
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $studname = $_POST['studnum'];
+        $email = $_POST['email'];
+        $pass1 = $_POST['pass1'];
+        $pass2 = $_POST['pass2'];
+
+        if(!empty($firstname) && !empty($lastname) && !empty($email)){
+            if($pass1 == $pass2){
+                if(!empty($studname)){
+
+                        if($pass1 == $pass2){
+                            
+                                
+                                $query = "INSERT INTO `users` (`firstname`, `lastname`, `password`, `stud_num`,`email`, `user_type`)
+                                          VALUES ('$firstname','$lastname','$pass1','$studname','$email','S');";
+                            
+                        }
+                        
+                }
+                 
+                $query = "INSERT INTO `users` (`firstname`, `lastname`, `password`, `stud_num`,`email`, `user_type`)
+                          VALUES ('$firstname','$lastname','$pass1','$studname','$email','A');";
+            
+            
+        }
+        echo '<script>alert("Enter appropriate information")</script>';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +49,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         body{
-            background-color: rgba(0, 152, 239, 1);
+            background: url(images/signupback.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         .container{
             padding: 30px;
@@ -34,7 +70,8 @@
         <div class="container">
             <div class="row px-lg-5 py-3">
                 <div class="col-6">
-                    <h1>test</h1>
+                    <img src="images/LOHOg.png" style="width: 550px;">
+                    <h4>test</h4>
                 </div>
                 <div class="col-6">
                     <div class="input-group mb-4">
@@ -52,11 +89,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputEmail1" name="email">
+                        <input type="password" class="form-control" id="exampleInputEmail1" name="pass1">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="exampleInputEmail1" name="email">
+                        <input type="password" class="form-control" id="exampleInputEmail1" name="pass2">
                         <a href="index.php">Already have an account?</a>
                     </div>
                     <div class="mb-3">
