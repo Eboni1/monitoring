@@ -7,7 +7,22 @@ session_start();
     $user_data = check_login($con);
     $email = $user_data['email'];
     
+    $query = "SELECT * FROM `subject` WHERE `inst_email` = '$email'";
+    $result = mysqli_query($con, $query);
+    $subject = mysqli_fetch_assoc($result);
+    $what = $subject['sub_code'];
 
+    $what = "SELECT * FROM `class` where `class_sub` = '$what'";
+    $hey = mysqli_query($con, $what);
+    $class = mysqli_fetch_assoc($hey);
+
+    if($_SERVER('REQUEST_METHOD') == "POST"){
+        $sched = $_POST['sched'];
+        
+        $every = "UPDATE `class` SET `sched1`='$sched'";
+        mysqli_query($con, $every);
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -147,11 +162,16 @@ session_start();
                         </div>
                         <!-- SCHEDULES  -->
                         <form method="post">
-                            <div class="container">
+                            <div class="container mt-5">
                                 <div class="row">
-                                    <div class="col">
-                                        
+                                    <div class="col-8 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Schedule</label>
+                                        <input class="form-control form-control-lg" type="text" placeholder="<?php echo $class['sched1']; ?>" aria-label=".form-control-lg example" name="sched">
                                     </div>
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                        <button class="btn btn-danger">Cancel</button>
+                                    </div> 
                                 </div>
                             </div>
                         </form>
