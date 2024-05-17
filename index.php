@@ -10,35 +10,36 @@ session_start(); //hello
 		//something was posted
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-        $type = $_POST['type'];
 
 		if(!empty($email) && !empty($password))
 		{
+            $query = "select * from `users` where email = '$email' limit 1";
+            $result = mysqli_query($con, $query);
+            $logindata = mysqli_fetch_assoc($result);
+            $type = $logindata['user_type'];
+
             switch($type){
                 case 'A':
-                    $query = "select * from faculty where email = '$email' limit 1";
-                    $result = mysqli_query($con, $query);
-                    $user_data = mysqli_fetch_assoc($result);
-                    if($user_data['password'] === $password){
-                        $_SESSION['num_id'] = $user_data['num_id'];
+                    
+
+                    if($logindata['password'] === $password){
+                        $_SESSION['num_id'] = $logindata['num_id'];
                         $_SESSION['type'] = $type;
                         header("Location: staff/index.php");
                         die;
                     }
                     break;
                 case 'S':
-                    $query = "select * from users where email = '$email' limit 1";
-                    $result = mysqli_query($con, $query);
-                    $user_data = mysqli_fetch_assoc($result);
-                    if($user_data['password'] === $password){
-                        $_SESSION['num_id'] = $user_data['num_id'];
+                    
+                    if($logindata['password'] === $password){
+                        $_SESSION['num_id'] = $logindata['num_id'];
                         $_SESSION['type'] = $type;
                         header("Location: students/index.php");
                         die;
                     }
                     break;
                     default:
-                        echo '<script>alert("Please specify your role.")</script>';
+                        echo '<script>alert("Undefined user type.")</script>';
                         break;
             }
 
@@ -114,14 +115,6 @@ session_start(); //hello
                     <img src="images/Buenosbetter.png" class="img">
                 </div>
                 <div class="col-6 form-floating pt-3">
-                    <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">I am a:</label>
-                    <select class="form-select" aria-label="Default select example" name="type">
-                        <option selected>Select</option>
-                        <option value="S">Student</option>
-                        <option value="A">Faculty</option>
-                    </select>
-                    </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">BU Email</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" name="email">
