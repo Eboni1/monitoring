@@ -6,6 +6,20 @@ session_start();
 
     $user_data = check_login($con);
     $email = $user_data['email'];
+
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $code = $_POST['subcode'];
+        $subname = $_POST['subname'];
+        $prof = $_POST['prof'];
+        $email = $_POST['email'];
+
+        $query = "INSERT INTO `subject`(`sub_code`, `sub_name`, `instructor`, `inst_email`) 
+                  VALUES ('$code','$subname','$prof','$email')";
+        $result = mysqli_query($con, $query);
+        if($result){
+            echo "Subject successfully added";
+        }
+    }
     
 ?>
 
@@ -146,22 +160,37 @@ session_start();
                         </div>
                         <!-- SCHEDULES  -->
                         <div class="row mt-3">
-                            <div class="col-3">
+                            <div class="col-3 mt-2">
                                 <a href="index.php">Back to Schedules</a>
-                            <div class="col-3">
-                                <a href="createclass.php">Create Class</a>
-                            </div>
                             <div class="col-6"></div>
                         </div>
-                        <div class="row">
-                            <div class="col-2">
-                                <a href="" class="buttonsched">Edit Class</a>
+                        <form action="" method="post">
+                            <div class="container mt-5">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Subject Code</label>
+                                            <input type="text" class="form-control" placeholder="eg. IS204 SADD" id="exampleInputEmail1" name="subcode">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Subject Name</label>
+                                            <input type="text" placeholder="eg. System Analysis and Design" class="form-control" id="exampleInputEmail1" name="subname">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Professor</label>
+                                            <input type="text" placeholder="instructor of the subject" class="form-control" id="exampleInputEmail1" name="prof">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Email</label>
+                                            <input type="text" placeholder="BU email of the instructor" class="form-control" id="exampleInputEmail1" name="email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="submit" class="btn btn-success">Create Subject</button>
+                                        </div> 
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-10">
-                                <h1 style="font-weight:bold;"><?php echo $class['sub_code'] . " - " . $class['sub_name']; ?></h1>
-                                <h3 style="font-weight:bold;"><?php echo "Time & Day: " . $class['time'] . " - " . $class['day']; ?></h3>
-                            </div>
-                        </div>
+                        </form>
                     </section>
                 </div>
             </div>

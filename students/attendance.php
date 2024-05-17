@@ -85,7 +85,7 @@ session_start();
         }
 
         }
-        a{
+        a.eh{
         padding: 5px 45px;
         border-radius: 30px;
         background-color:white;
@@ -101,7 +101,7 @@ session_start();
         li{
         margin-top: 20px;
         }
-        .active{
+        a.active{
             color: rgba(227, 125, 0, 1);
         }
         h3{
@@ -109,6 +109,9 @@ session_start();
         }
         h6{
         margin-bottom: 75px;
+        }
+        a.prof{
+            text-decoration: none;
         }
     </style>
 </head>
@@ -119,13 +122,13 @@ session_start();
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li><img src="../images/LOHOg.png" style="width:200px;"></li>
-                <li><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></li>
-                <li><h3><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></li>
+                <li><a href="profile.php" class="prof"><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></a></li>
+                <li><a href="profile.php" class="prof"><h3><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></a></li>
                 <li><h6><?php echo $user_data['email']; ?></h6></li>
-                <li><a href="index.php">SCHEDULE</a></li>
-                <li><a href="#" class="active">ATTENDACE</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="logout.php">LOGOUT</a></li>
+                <li><a href="index.php" class="eh">SCHEDULE</a></li>
+                <li><a href="#" class="active eh">ATTENDACE</a></li>
+                <li><a href="#" class="eh">ABOUT</a></li>
+                <li><a href="logout.php" class="eh">LOGOUT</a></li>
             </ul>
         </div>
         <div id="page-content-container">
@@ -141,13 +144,13 @@ session_start();
                         </div>
                         <div class="row" style="align-items: center;">
                             <div class="col-4 text-center">
-                                <h1>Absent:<br>0</h1>
+                                <h1>Absent:<br><?php echo $user_data['absence']; ?></h1>
                             </div>
                             <div class="col-4 text-center">
-                                <h1>Tardy:<br>0</h1>
+                                <h1>Tardy:<br><?php echo $user_data['tardy']; ?></h1>
                             </div>
                             <div class="col-4 text-center">
-                                <h1>Classes Attended:<br>0</h1>
+                                <h1>Present:<br><?php echo $user_data['present']; ?></h1>
                             </div>
                         </div>
                     </section>

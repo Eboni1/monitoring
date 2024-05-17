@@ -16,7 +16,7 @@ session_start();
     $hey = mysqli_query($con, $what);
     $class = mysqli_fetch_assoc($hey);
 
-    if($_SERVER('REQUEST_METHOD') == "POST"){
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
         $sched = $_POST['sched'];
         
         $every = "UPDATE `class` SET `sched1`='$sched'";
@@ -99,7 +99,7 @@ session_start();
         }
 
         }
-        a{
+        a.eh{
         padding: 5px 45px;
         border-radius: 30px;
         background-color:white;
@@ -143,10 +143,10 @@ session_start();
                 <li><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></li>
                 <li><h3 class="whe"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></li>
                 <li><h6><?php echo $user_data['email']; ?></h6></li>
-                <li><a href="index.php">SCHEDULES</a></li>
-                <li><a href="attendance.php">ATTENDANCE</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="logout.php">LOGOUT</a></li>
+                <li><a href="index.php" class="eh">SCHEDULES</a></li>
+                <li><a href="attendance.php" class="eh">ATTENDANCE</a></li>
+                <li><a href="#" class="eh">ABOUT</a></li>
+                <li><a href="logout.php" class="eh">LOGOUT</a></li>
             </ul>
         </div>
         <!-- content -->
@@ -170,7 +170,7 @@ session_start();
                                     </div>
                                     <div class="mb-3">
                                         <button type="submit" class="btn btn-primary">Save</button>
-                                        <button class="btn btn-danger">Cancel</button>
+                                        <button class="btn btn-danger"><a style="text-decoration: none;" href="index.php">Cancel</a></button>
                                     </div> 
                                 </div>
                             </div>

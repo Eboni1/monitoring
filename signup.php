@@ -13,7 +13,7 @@ session_start();
         $pass2 = $_POST['pass2'];
 
         if(!empty($firstname) && !empty($lastname) && !empty($email)){
-            if($pass1 == $pass2){
+            if($pass1 === $pass2){
                 if(!empty($studname)){
 
                         if($pass1 == $pass2){
@@ -21,13 +21,25 @@ session_start();
                                 
                                 $query = "INSERT INTO `users` (`firstname`, `lastname`, `password`, `stud_num`,`email`, `user_type`)
                                           VALUES ('$firstname','$lastname','$pass1','$studname','$email','S');";
-                            
+                                $result = mysqli_query($con, $query);
+                                if($result){
+                                    echo "Account created";
+                                }
+
                         }
                         
+                }else{
+                    if($pass1 == $pass2){
+                        $query = "INSERT INTO `users` (`firstname`, `lastname`, `password`, `stud_num`,`email`, `user_type`)
+                                  VALUES ('$firstname','$lastname','$pass1','$studname','$email','A');";
+                        $result = mysqli_query($con, $query);
+                        if($result){
+                            echo "Account created";
+                        }
+                    }
                 }
                  
-                $query = "INSERT INTO `users` (`firstname`, `lastname`, `password`, `stud_num`,`email`, `user_type`)
-                          VALUES ('$firstname','$lastname','$pass1','$studname','$email','A');";
+                
             
             
         }
@@ -71,7 +83,7 @@ session_start();
             <div class="row px-lg-5 py-3">
                 <div class="col-6">
                     <img src="images/LOHOg.png" style="width: 550px;">
-                    <h4>test</h4>
+                    <h4>SIGNUP PAGE</h4>
                 </div>
                 <div class="col-6">
                     <div class="input-group mb-4">

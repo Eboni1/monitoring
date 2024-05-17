@@ -5,24 +5,6 @@ session_start();
     include("../functions.php");
 
     $user_data = check_login($con);
-    $email = $user_data['email'];
-    
-    $query = "SELECT * FROM `subject` WHERE `inst_email` = '$email'";
-    $result = mysqli_query($con, $query);
-    $subject = mysqli_fetch_assoc($result);
-    $what = $subject['sub_code'];
-
-    $what = "SELECT * FROM `class` where `class_sub` = '$what'";
-    $hey = mysqli_query($con, $what);
-    $class = mysqli_fetch_assoc($hey);
-
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
-        $sched = $_POST['sched'];
-        
-        $every = "UPDATE `class` SET `sched3`='$sched'";
-        mysqli_query($con, $every);
-
-    }
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +12,12 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BU Staff</title>
+    <title>BU Students</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -65,7 +47,11 @@ session_start();
         }
         #page-content-wrapper {
         width: 100%;
-        padding-left: 250px;
+        margin-left: 0px;
+        }
+        section{
+        width: 100%;
+        margin-left: 135px;
         }
 
         .sidebar-nav {
@@ -115,70 +101,64 @@ session_start();
         li{
         margin-top: 20px;
         }
-        .active{
+        a.active{
             color: rgba(227, 125, 0, 1);
         }
-        .whe{
+        h3.yea{
         font-weight: bold;
         }
         h6{
         margin-bottom: 75px;
         }
-        .wait{
-            background-color: rgba(199, 199, 199, 0.5);
-            border-radius: 30px;
-        }
-        .buttonsched{
-            float: right;
-            margin-top: 30px;
+        a.prof{
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <!-- navbar -->
+        
+        <!-- SIDEBAR -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li><img src="../images/LOHOg.png" style="width: 200px;"></li>
-                <li><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></li>
-                <li><h3 class="whe"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></li>
+                <li><img src="../images/LOHOg.png" style="width:200px;"></li>
+                <li><a href="profile.php" class="prof"><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></a></li>
+                <li><a href="profile.php" class="prof active"><h3 class="yea"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></a></li>
                 <li><h6><?php echo $user_data['email']; ?></h6></li>
-                <li><a href="index.php" class="eh">SCHEDULES</a></li>
+                <li><a href="index.php" class="eh">SCHEDULE</a></li>
                 <li><a href="attendance.php" class="eh">ATTENDANCE</a></li>
                 <li><a href="#" class="eh">ABOUT</a></li>
                 <li><a href="logout.php" class="eh">LOGOUT</a></li>
             </ul>
         </div>
-        <!-- content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-container">
             <div class="page-content">
                 <div class="container">
-                    <section class="px-3 pt-3">
+                    <!-- Attendance Summary -->
+                    <section id="stat" class="px-3 pt-3">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col">
                                 <img src="../images/Bicol_UniversityLogo.png" style="height: 100px;">
-                                <img src="../images/Schedule.png" style="height: 100px;">
+                                <!-- <img src="../images/Schedule.png" style="height: 100px;"> -->
                             </div>
                         </div>
-                        <!-- SCHEDULES  -->
-                        <form method="post">
-                            <div class="container mt-5">
-                                <div class="row">
-                                    <div class="col-8 mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Schedule</label>
-                                        <input class="form-control form-control-lg" type="text" placeholder="<?php echo $class['sched3']; ?>" aria-label=".form-control-lg example" name="sched">
-                                    </div>
-                                    <div class="mb-3">
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                        <button class="btn btn-danger"><a style="text-decoration: none;" href="index.php">Cancel</a></button>
-                                    </div> 
-                                </div>
+                    </section>
+                    <!-- Class schedule -->
+                    <section class="px-3 pt-3">
+                        <div class="row">
+                            <div class="col-2">
+                                <img src="../images/profpic.png" style="width:150px;">
                             </div>
-                        </form>
+                            <div class="col-10">
+                                <h1 style="font-weight: bold;"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h1>
+                                <h3><?php echo $user_data['email'] ?></h3>
+                            </div>
+                        </div>
                     </section>
                 </div>
+                
             </div>
         </div>
-    </div>  
+    </div>
 </body>
 </html>

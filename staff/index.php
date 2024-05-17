@@ -93,7 +93,7 @@ session_start();
         }
 
         }
-        a{
+        a.eh{
         padding: 5px 45px;
         border-radius: 30px;
         background-color:white;
@@ -109,7 +109,7 @@ session_start();
         li{
         margin-top: 20px;
         }
-        .active{
+        a.active{
             color: rgba(227, 125, 0, 1);
         }
         .whe{
@@ -126,6 +126,9 @@ session_start();
             float: right;
             margin-top: 30px;
         }
+        a.prof{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -134,13 +137,13 @@ session_start();
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li><img src="../images/LOHOg.png" style="width: 200px;"></li>
-                <li><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></li>
-                <li><h3 class="whe"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></li>
+                <li><a href="profile.php" class="prof"><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></a></li>
+                <li><a href="profile.php" class="prof"><h3 class="whe"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></a></li>
                 <li><h6><?php echo $user_data['email']; ?></h6></li>
-                <li><a href="#" class="active">SCHEDULES</a></li>
-                <li><a href="attendance.php">ATTENDANCE</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="logout.php">LOGOUT</a></li>
+                <li><a href="#" class="active eh">SCHEDULES</a></li>
+                <li><a href="attendance.php" class="eh">ATTENDANCE</a></li>
+                <li><a href="#" class="eh">ABOUT</a></li>
+                <li><a href="logout.php" class="eh">LOGOUT</a></li>
             </ul>
         </div>
         <!-- content -->
@@ -157,10 +160,10 @@ session_start();
                         <!-- SCHEDULES  -->
                         <div class="row mt-3">
                             <div class="col-3">
-                                <a href="createclass.php">Create Class</a>
+                                <a class="eh" href="createclass.php">Create Class</a>
                             </div>
                             <div class="col-3">
-                                <a href="createsubj.php">Create Subject</a>
+                                <a class="eh" href="createsubj.php">Create Subject</a>
                             </div>
                         </div>
                         <div class="row">
@@ -169,8 +172,9 @@ session_start();
                             <?php 
                             if(!is_null($subject)){
                                 ?>
-                                <div class="col-2">
-                                    <a href="editsched1.php" class="buttonsched">Edit Class</a>
+                                <div class="col-5">
+                                    <a href="editsched1.php" class="buttonsched eh">Edit Class</a>
+                                    <a href="attendance.php" class="buttonsched eh">Set attendance</a>
                                 </div>
                                 <div class="col-10"><h1 style="font-weight:bold;"><?php echo $subject['sub_code'] . " - " . $subject['sub_name']; ?></h1><?php
                             }
@@ -186,8 +190,9 @@ session_start();
                             <?php 
                             if(!is_null($subject)){
                                 ?>
-                                <div class="col-2">
-                                    <a href="editsched2.php" class="buttonsched">Edit Class</a>
+                                <div class="col-5">
+                                    <a href="editsched2.php" class="buttonsched eh">Edit Class</a>
+                                    <a href="attendance.php" class="buttonsched eh">Set attendance</a>
                                 </div>
                                 <div class="col-10"><h1 style="font-weight:bold;"><?php echo $subject['sub_code'] . " - " . $subject['sub_name']; ?></h1><?php
                             }
@@ -203,8 +208,9 @@ session_start();
                             <?php 
                             if(!is_null($subject)){
                                 ?>
-                                <div class="col-2">
-                                    <a href="editsched3.php" class="buttonsched">Edit Class</a>
+                                <div class="col-5">
+                                    <a href="editsched3.php" class="buttonsched eh">Edit Class</a>
+                                    <a href="attendance.php" class="buttonsched eh">Set attendance</a>
                                 </div>
                                 <div class="col-10"><h1 style="font-weight:bold;"><?php echo $subject['sub_code'] . " - " . $subject['sub_name']; ?></h1><?php
                             }

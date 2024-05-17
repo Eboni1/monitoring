@@ -5,6 +5,34 @@ session_start();
     include("../functions.php");
 
     $user_data = check_login($con);
+
+    $query = "SELECT * FROM `users`;";
+    $result = mysqli_query($con, $query);
+    $student = mysqli_fetch_assoc($result);
+    $email = $student['email'];
+
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $status = $_POST['atten'];
+
+        switch($status){
+            case 'P':
+                $query = "UPDATE `users` SET `present` = 1 WHERE `email` = '$email'";
+                mysqli_query($con, $query);
+                break;
+            case 'T':
+                $query = "UPDATE `users` SET `tardy` = 1 WHERE `email` = '$email'";
+                mysqli_query($con, $query);
+                break;
+            case 'A':
+                $query = "UPDATE `users` SET `present` = 1 WHERE `email` = '$email'";
+                mysqli_query($con, $query);
+                break;
+            default:
+                echo '<script>alert"Tick a  box"</script>';
+        }
+
+        $query = "INSERT INTO `users` where `email` = '$email'";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -106,6 +134,11 @@ session_start();
         h6{
         margin-bottom: 75px;
         }
+        .whey{
+            background-color: rgba(198, 198, 198, 0.5);
+            padding: 30px;
+            border-radius: 30px;
+        }
     </style>
 </head>
 <body>
@@ -134,17 +167,37 @@ session_start();
                                 <img src="../images/Attendance.png" style="height: 100px;">
                             </div>
                         </div>  
-                        <div class="row">
-                            <div class="col">
-                                <?php
-                                for($x = 1; $x <= 1; $x++){
-                                    $query = "SELECT * FROM `users` 
-                                              WHERE `course` = 'BSIS';";
-                                    $result = mysqli_query($con, $query);
-                                }
-                                ?>
+                        <form method="post">
+                            <div class="row">
+                                <div class="col">
+                                    <h1>Enrolled Students:</h1><br>
+                                    <div class="col-5 my-3 whey">
+                                        <h2 style="font-weight: bold;"><?php echo $student['firstname'] . " " . $student['lastname']; ?></h2>
+                                        <p><?php echo $student['email']; ?></p>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" value="P" name="atten" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Present
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" value="T" name="atten" id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Tardy
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" value="A" name="atten" id="flexRadioDefault2" checked>
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Absent
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-success">Submit</button>
+                                    
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </section>
                 </div>
             </div>

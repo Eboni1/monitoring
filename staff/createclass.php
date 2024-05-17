@@ -146,39 +146,36 @@ session_start();
                         </div>
                         <!-- SCHEDULES  -->
                         <div class="row mt-3">
-                            <div class="col-3">
+                            <div class="col-3 mt-2">
                                 <a href="index.php">Back to Schedules</a>
-                            <div class="col-3">
-                                <a href="createsubj.php">Create Subject</a>
-                            </div>
                             <div class="col-6"></div>
                         </div>
                         <form action="" method="post">
-                            <div class="container">
+                            <div class="container mt-5">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-8">
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Subject</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" name="subject">
+                                            <input type="text" placeholder="subject name" class="form-control" id="exampleInputEmail1" name="subject">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Schedule 1</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" name="sched1">
+                                            <input type="text" placeholder="Day of week - Time Duration" class="form-control" id="exampleInputEmail1" name="sched1">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Schedule 2</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" name="sched2">
+                                            <input type="text" placeholder="Day of week - Time Duration" class="form-control" id="exampleInputEmail1" name="sched2">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Schedule 3</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" name="sched3">
+                                            <input type="text" placeholder="Day of week - Time Duration" class="form-control" id="exampleInputEmail1" name="sched3">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Course</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" name="course">
+                                            <input type="text" placeholder="course name" class="form-control" id="exampleInputEmail1" name="course">
                                         </div>
                                         <div class="mb-3">
-                                            <button type="submit" class="btn btn-primary">Login</button>
+                                            <button type="submit" class="btn btn-success">Create Class</button>
                                         </div> 
                                     </div>
                                 </div>
