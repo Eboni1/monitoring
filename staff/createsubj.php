@@ -7,7 +7,6 @@ session_start();
     $user_data = check_login($con);
     $email = $user_data['email'];
     
-
 ?>
 
 <!DOCTYPE html>
@@ -128,7 +127,7 @@ session_start();
                 <li><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></li>
                 <li><h3 class="whe"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></li>
                 <li><h6><?php echo $user_data['email']; ?></h6></li>
-                <li><a href="index.php">SCHEDULES</a></li>
+                <li><a href="#" class="active">SCHEDULES</a></li>
                 <li><a href="attendance.php">ATTENDANCE</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="logout.php">LOGOUT</a></li>
@@ -146,33 +145,22 @@ session_start();
                             </div>
                         </div>
                         <!-- SCHEDULES  -->
-                        <div class="HEH">
-                            
-
-                                <?php
-
-                                    for($x = 1; $x <= 3; $x++){
-                                        $query = "SELECT * FROM `subject` WHERE `inst_email` = '$email' AND `sub_id` = '$x';";
-                                        $result = mysqli_query($con, $query);
-                                        
-                                        if($result && mysqli_num_rows($result) > 0){
-                                            $class = mysqli_fetch_assoc($result);
-                                            ?>
-                                            <div class="row my-5">
-                                                <div class="col-4">
-                                                    <a class="buttonsched" href="editsched.php">Edit Schedule</a>
-                                                </div>
-                                                <div class="col-8 wait px-2">
-                                                    <h1 style="font-weight:bold;"><?php echo $class['sub_code'] . " - " . $class['sub_name']; ?></h1>
-                                                    <h3 style="font-weight:bold;"><?php echo "Time & Day: " . $class['time'] . " - " . $class['day']; ?></h3>
-                                                </div>
-                                            </div><?php
-                                        }
-                                        
-                                    }
-                                ?>
-                                
-                            
+                        <div class="row mt-3">
+                            <div class="col-3">
+                                <a href="index.php">Back to Schedules</a>
+                            <div class="col-3">
+                                <a href="createclass.php">Create Class</a>
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <a href="" class="buttonsched">Edit Class</a>
+                            </div>
+                            <div class="col-10">
+                                <h1 style="font-weight:bold;"><?php echo $class['sub_code'] . " - " . $class['sub_name']; ?></h1>
+                                <h3 style="font-weight:bold;"><?php echo "Time & Day: " . $class['time'] . " - " . $class['day']; ?></h3>
+                            </div>
                         </div>
                     </section>
                 </div>

@@ -14,43 +14,35 @@ session_start(); //hello
 
 		if(!empty($email) && !empty($password))
 		{
-
-			//read from database
-			$query = "select * from users where email = '$email' limit 1";
-
-			$result = mysqli_query($con, $query);
-
-            if($result){
-                if($result && mysqli_num_rows($result) > 0)
-                {
-
+            switch($type){
+                case 'A':
+                    $query = "select * from faculty where email = '$email' limit 1";
+                    $result = mysqli_query($con, $query);
                     $user_data = mysqli_fetch_assoc($result);
-                    
-                    switch($type)
-                    {
-                        case 'A':
-                            if($user_data['password'] === $password){
-                        
-                                $_SESSION['num_id'] = $user_data['num_id'];
-                                header("Location: staff/index.php");
-                                die;
-                            }
-                            break;
-                        case 'S':
-                            if($user_data['password'] === $password){
-                        
-                                $_SESSION['num_id'] = $user_data['num_id'];
-                                header("Location: students/index.php");
-                                die;
-                            }
-                            break;
-                        default:
-                            echo '<script>alert("Please specify your role.")</script>';
-                            break;
+                    if($user_data['password'] === $password){
+                        $_SESSION['num_id'] = $user_data['num_id'];
+                        $_SESSION['type'] = $type;
+                        header("Location: staff/index.php");
+                        die;
                     }
-                }
+                    break;
+                case 'S':
+                    $query = "select * from users where email = '$email' limit 1";
+                    $result = mysqli_query($con, $query);
+                    $user_data = mysqli_fetch_assoc($result);
+                    if($user_data['password'] === $password){
+                        $_SESSION['num_id'] = $user_data['num_id'];
+                        $_SESSION['type'] = $type;
+                        header("Location: students/index.php");
+                        die;
+                    }
+                    break;
+                    default:
+                        echo '<script>alert("Please specify your role.")</script>';
+                        break;
             }
-            echo '<script>alert("There is no account linked with your email.")</script>';
+
+			
 		}else
 		{
 			echo '<script>alert("Please enter valid information.")</script>';

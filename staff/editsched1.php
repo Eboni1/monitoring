@@ -6,16 +6,7 @@ session_start();
 
     $user_data = check_login($con);
     $email = $user_data['email'];
-
-    $query = "SELECT * FROM `subject` WHERE `inst_email` = '$email'";
-    $result = mysqli_query($con, $query);
-    $subject = mysqli_fetch_assoc($result);
-    $what = $subject['sub_code'];
-
-    $what = "SELECT * FROM `class` where `class_sub` = '$what'";
-    $hey = mysqli_query($con, $what);
-    $class = mysqli_fetch_assoc($hey);
-
+    
 
 ?>
 
@@ -137,7 +128,7 @@ session_start();
                 <li><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></li>
                 <li><h3 class="whe"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></li>
                 <li><h6><?php echo $user_data['email']; ?></h6></li>
-                <li><a href="#" class="active">SCHEDULES</a></li>
+                <li><a href="index.php">SCHEDULES</a></li>
                 <li><a href="attendance.php">ATTENDANCE</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="logout.php">LOGOUT</a></li>
@@ -155,65 +146,15 @@ session_start();
                             </div>
                         </div>
                         <!-- SCHEDULES  -->
-                        <div class="row mt-3">
-                            <div class="col-3">
-                                <a href="createclass.php">Create Class</a>
+                        <form method="post">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-3">
-                                <a href="createsubj.php">Create Subject</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            
-                            <div class="col-10">
-                            <?php 
-                            if(!is_null($subject)){
-                                ?>
-                                <div class="col-2">
-                                    <a href="editsched1.php" class="buttonsched">Edit Class</a>
-                                </div>
-                                <div class="col-10"><h1 style="font-weight:bold;"><?php echo $subject['sub_code'] . " - " . $subject['sub_name']; ?></h1><?php
-                            }
-                            if(!is_null($class)){
-                                ?><h3 style="font-weight:bold;"><?php echo "Time & Day: " . $class['sched1']; ?></h3></div>
-                            </div><?php
-                            }
-                            ?>
-                        </div>
-                        <div class="row">
-                            
-                            <div class="col-10">
-                            <?php 
-                            if(!is_null($subject)){
-                                ?>
-                                <div class="col-2">
-                                    <a href="editsched2.php" class="buttonsched">Edit Class</a>
-                                </div>
-                                <div class="col-10"><h1 style="font-weight:bold;"><?php echo $subject['sub_code'] . " - " . $subject['sub_name']; ?></h1><?php
-                            }
-                            if(!is_null($class)){
-                                ?><h3 style="font-weight:bold;"><?php echo "Time & Day: " . $class['sched2']; ?></h3></div>
-                            </div><?php
-                            }
-                            ?>
-                        </div>
-                        <div class="row">
-                            
-                            <div class="col-10">
-                            <?php 
-                            if(!is_null($subject)){
-                                ?>
-                                <div class="col-2">
-                                    <a href="editsched3.php" class="buttonsched">Edit Class</a>
-                                </div>
-                                <div class="col-10"><h1 style="font-weight:bold;"><?php echo $subject['sub_code'] . " - " . $subject['sub_name']; ?></h1><?php
-                            }
-                            if(!is_null($class)){
-                                ?><h3 style="font-weight:bold;"><?php echo "Time & Day: " . $class['sched3']; ?></h3></div>
-                            </div><?php
-                            }
-                            ?>
-                        </div>
+                        </form>
                     </section>
                 </div>
             </div>
