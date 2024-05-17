@@ -129,6 +129,11 @@ session_start();
         a.prof{
             text-decoration: none;
         }
+        .with{
+            background-color: rgba(255, 164, 33, 0.5);
+            border-radius: 30px;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -140,7 +145,7 @@ session_start();
                 <li><a href="profile.php" class="prof"><img src="../images/profpic.png" class="rounded-circle" style="width:150px;"></a></li>
                 <li><a href="profile.php" class="prof"><h3 class="whe"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h3></a></li>
                 <li><h6><?php echo $user_data['email']; ?></h6></li>
-                <li><a href="#" class="active eh">SCHEDULES</a></li>
+                <li><a href="#" class="active eh">SCHEDULE</a></li>
                 <li><a href="attendance.php" class="eh">ATTENDANCE</a></li>
                 <li><a href="#" class="eh">ABOUT</a></li>
                 <li><a href="logout.php" class="eh">LOGOUT</a></li>
@@ -166,7 +171,7 @@ session_start();
                                 <a class="eh" href="createsubj.php">Create Subject</a>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row with">
                             
                             <div class="col-10">
                             <?php 
@@ -184,7 +189,7 @@ session_start();
                             }
                             ?>
                         </div>
-                        <div class="row">
+                        <div class="row with">
                             
                             <div class="col-10">
                             <?php 
@@ -202,7 +207,7 @@ session_start();
                             }
                             ?>
                         </div>
-                        <div class="row">
+                        <div class="row with">
                             
                             <div class="col-10">
                             <?php 

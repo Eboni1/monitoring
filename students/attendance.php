@@ -113,6 +113,13 @@ session_start();
         a.prof{
             text-decoration: none;
         }
+        .kit{
+            background-color: rgba(255, 164, 33, 0.5);
+            border-radius: 30px;
+            margin: 5px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
     </style>
 </head>
 <body>
@@ -143,13 +150,13 @@ session_start();
                             </div>
                         </div>
                         <div class="row" style="align-items: center;">
-                            <div class="col-4 text-center">
+                            <div class="col-4 text-center kit">
                                 <h1>Absent:<br><?php echo $user_data['absence']; ?></h1>
                             </div>
-                            <div class="col-4 text-center">
+                            <div class="col-4 text-center kit">
                                 <h1>Tardy:<br><?php echo $user_data['tardy']; ?></h1>
                             </div>
-                            <div class="col-4 text-center">
+                            <div class="col-4 text-center kit">
                                 <h1>Present:<br><?php echo $user_data['present']; ?></h1>
                             </div>
                         </div>

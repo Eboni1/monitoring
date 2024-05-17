@@ -42,8 +42,10 @@ session_start();
                 
             
             
+        }else{
+            echo '<script>alert("Enter appropriate information")</script>';
         }
-        echo '<script>alert("Enter appropriate information")</script>';
+        
     }
 }
 ?>
