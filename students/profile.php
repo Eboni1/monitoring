@@ -152,8 +152,13 @@ session_start();
                             <div class="col-10">
                                 <h1 style="font-weight: bold;"><?php echo $user_data['firstname'] . " " . $user_data['lastname']; ?></h1><br>
                                 <h3><?php echo $user_data['stud_num'] ?></h3><br>
-                                <h3><?php echo $user_data['email'] ?></h3>
+                                <h3>Student number: <?php echo $user_data['email'] ?></h3><br>
+                                <h3>Contact number: <?php echo $user_data['phone_num'] ?></h3><br>
+                                <h3>Address: <?php echo $user_data['address'] ?></h3><br>
+                                <h3>Course year & block: <?php echo $user_data['course'] . "-" . $user_data['yr_block'] ?></h3>
+                                <a href="" class="btn btn-primary eh">Edit info</a>
                             </div>
+
                         </div>
                     </section>
                 </div>
