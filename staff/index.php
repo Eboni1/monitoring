@@ -134,6 +134,11 @@ session_start();
             border-radius: 30px;
             margin: 10px;
         }
+        @media print {
+        .noPrint{
+            display:none;
+        }
+        }
     </style>
 </head>
 <body>
@@ -155,20 +160,24 @@ session_start();
         <div id="page-content-wrapper">
             <div class="page-content">
                 <div class="container">
-                    <section class="px-3 pt-3">
+                    <section class="px-3 pt-3" id="printable">
                         <div class="row">
                             <div class="col-8">
                                 <img src="../images/Bicol_UniversityLogo.png" style="height: 100px;">
-                                <img src="../images/Schedule.png" style="height: 100px;">
+                                <img src="../images/Schedule.png" style="height: 100px;" class="noPrint">
+                                
                             </div>
                         </div>
                         <!-- SCHEDULES  -->
                         <div class="row mt-3">
                             <div class="col-3">
-                                <a class="eh" href="createclass.php">Create Class</a>
+                                <a class="eh noPrint" href="createclass.php">Create Class</a>
                             </div>
                             <div class="col-3">
-                                <a class="eh" href="createsubj.php">Create Subject</a>
+                                <a class="eh noPrint" href="createsubj.php">Create Subject</a>
+                            </div>
+                            <div class="col-3">
+                                <input type="button" class="btn btn-success ml-5 pb-1 noPrint" onclick="printDiv('printable')" value="Print Schedule" />
                             </div>
                         </div>
                         <div class="row with">
@@ -178,8 +187,8 @@ session_start();
                             if(!is_null($subject)){
                                 ?>
                                 <div class="col-5">
-                                    <a href="editsched1.php" class="buttonsched eh">Edit Class</a>
-                                    <a href="attendance.php" class="buttonsched eh">Set attendance</a>
+                                    <a href="editsched1.php" class="buttonsched eh noPrint">Edit Class</a>
+                                    <a href="attendance.php" class="buttonsched eh noPrint">Set attendance</a>
                                 </div>
                                 <div class="col-10"><h1 style="font-weight:bold;"><?php echo $subject['sub_code'] . " - " . $subject['sub_name']; ?></h1><?php
                             }
@@ -196,8 +205,8 @@ session_start();
                             if(!is_null($subject)){
                                 ?>
                                 <div class="col-5">
-                                    <a href="editsched2.php" class="buttonsched eh">Edit Class</a>
-                                    <a href="attendance.php" class="buttonsched eh">Set attendance</a>
+                                    <a href="editsched2.php" class="buttonsched eh noPrint">Edit Class</a>
+                                    <a href="attendance.php" class="buttonsched eh noPrint">Set attendance</a>
                                 </div>
                                 <div class="col-10"><h1 style="font-weight:bold;"><?php echo $subject['sub_code'] . " - " . $subject['sub_name']; ?></h1><?php
                             }
@@ -214,8 +223,8 @@ session_start();
                             if(!is_null($subject)){
                                 ?>
                                 <div class="col-5">
-                                    <a href="editsched3.php" class="buttonsched eh">Edit Class</a>
-                                    <a href="attendance.php" class="buttonsched eh">Set attendance</a>
+                                    <a href="editsched3.php" class="buttonsched eh noPrint">Edit Class</a>
+                                    <a href="attendance.php" class="buttonsched eh noPrint">Set attendance</a>
                                 </div>
                                 <div class="col-10"><h1 style="font-weight:bold;"><?php echo $subject['sub_code'] . " - " . $subject['sub_name']; ?></h1><?php
                             }
@@ -225,10 +234,23 @@ session_start();
                             }
                             ?>
                         </div>
+                        
                     </section>
                 </div>
             </div>
         </div>
     </div>  
 </body>
+<script>
+function printDiv(printable) {
+	var printContents = document.getElementById(printable).innerHTML;
+	var originalContents = document.body.innerHTML;
+
+	document.body.innerHTML = printContents;
+
+	window.print();
+
+	document.body.innerHTML = originalContents;
+}
+</script>
 </html>

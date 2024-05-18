@@ -24,7 +24,7 @@ session_start();
                                 $result = mysqli_query($con, $query);
                                 if($result){
                                     echo "Account created";
-                                    header('Location: students/index.php');
+                                    header('Location: index.php');
                                 }
 
                         }
@@ -36,7 +36,7 @@ session_start();
                         $result = mysqli_query($con, $query);
                         if($result){
                             echo "Account created";
-                            header('Location: staff/index.php');
+                            header('Location: index.php');
                         }
                     }
                 }

@@ -112,7 +112,7 @@ session_start(); //hello
             <div class="row px-lg-5 py-3">
                 <div class="col-6 pt-3">
                     <h1>Welcome,</h1><br>
-                    <img src="images/Buenosbetter.png" class="img">
+                    <img src="images/csd.png" class="img">
                 </div>
                 <div class="col-6 form-floating pt-3">
                     <div class="mb-3">
